@@ -1,10 +1,18 @@
-import Link from "next/link";
+import Featured from "@/components/featured/Featured";
 import styles from "./homepage.module.css";
+import CategoryList from "@/components/categoryList/CategoryList";
+import CardList from "@/components/CardList/CardList";
+import Menu from "@/components/Menu/Menu";
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/">Helo this is test</Link>
+    <div className={styles.container}>
+      <Featured />
+      <CategoryList />
+      <div className={styles.content}>
+        <CardList />
+        <Menu />
+      </div>
     </div>
   );
 }
