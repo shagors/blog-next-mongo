@@ -8,6 +8,12 @@ import "react-quill/dist/quill.bubble.css";
 
 const page = () => {
   const [open, setOpen] = useState(false);
+  const [file, setFile] = useState(null);
+  const [media, setMedia] = useState("");
+  const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
+  const [catSlug, setCatSlug] = useState("");
+
   return (
     <div className={styles.container}>
       <input type="text" placeholder="Title" className={styles.input} />
@@ -21,8 +27,8 @@ const page = () => {
       </select>
 
       <div className={styles.editor}>
-        <button className={styles.button}>
-          <Image src="/plus.png" alt="Add" width={29} height={29} />
+        <button className={styles.button} onClick={() => setOpen(!open)}>
+          <Image src="/plus.png" alt="Add" width={16} height={16} />
         </button>
         {open && (
           <div className={styles.add}>
@@ -48,6 +54,8 @@ const page = () => {
         <ReactQuill
           className={styles.textArea}
           theme="bubble"
+          value={value}
+          onChange={setValue}
           placeholder="Tell your story..."
         />
       </div>
